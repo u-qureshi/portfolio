@@ -8,7 +8,39 @@ const skills=[
  ['Tools & cloud',[['Docker','Containerized development environments.'],['Git / GitHub','Version control and collaborative development.'],['CI / CD','Foundations of automated delivery.'],['AWS / S3','AWS basics and S3-compatible storage.']]]
 ];
 const hint=document.querySelector('.skill-hint');
-skills.forEach(([group,items])=>{const row=document.createElement('div');row.className='skill-row reveal';const label=document.createElement('span');label.className='label';label.textContent=group;const list=document.createElement('div');list.className='skill-items';items.forEach(([name,desc])=>{const b=document.createElement('button');b.className='skill';b.textContent=name;b.title=desc;b.addEventListener('mouseenter',()=>hint.textContent=desc);b.addEventListener('focus',()=>hint.textContent=desc);b.addEventListener('click',()=>hint.textContent=desc);list.append(b)});row.append(label,list);document.querySelector('#skill-rows').append(row)});
+const toolkitDetails=[
+ 'The building blocks behind every application.',
+ 'Interfaces that feel clear, responsive and considered.',
+ 'The services and logic that connect everything.',
+ 'Structured data and experiences that stay connected.',
+ 'Less repetitive work. More room for useful ideas.',
+ 'From a local environment to a delivered product.'
+];
+const toolkitPaths=[
+ '<path d="m8 5-6 7 6 7m8-14 6 7-6 7M14 3l-4 18"/>',
+ '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/>',
+ '<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M12 6.5h5M12 17.5h5"/>',
+ '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v7c0 1.66 4.03 3 9 3s9-1.34 9-3V5M3 12v7c0 1.66 4.03 3 9 3s9-1.34 9-3v-7"/>',
+ '<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3ZM20 2v4m-2-2h4"/>',
+ '<path d="M7 18H5a4 4 0 0 1-.6-7.96A7 7 0 0 1 18 8a5 5 0 0 1 1 9.9M12 13v9m-4-5 4-4 4 4"/>'
+];
+skills.forEach(([group,items],index)=>{
+ const row=document.createElement('article');row.className='skill-row reveal';
+ const top=document.createElement('div');top.className='skill-card-top';
+ top.innerHTML=`<span class="skill-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${toolkitPaths[index]}</svg></span><span class="label">${String(index+1).padStart(2,'0')} / THE TOOLKIT</span>`;
+ const title=document.createElement('h3');title.textContent=group;
+ const list=document.createElement('div');list.className='skill-items';
+ const detail=document.createElement('p');detail.className='skill-card-detail';detail.id=`skill-detail-${index}`;detail.textContent=toolkitDetails[index];
+ items.forEach(([name,desc])=>{
+  const button=document.createElement('button');button.className='skill';button.textContent=name;button.setAttribute('aria-describedby',detail.id);
+  const explain=()=>{detail.textContent=desc;hint.textContent=desc};
+  button.addEventListener('mouseenter',explain);button.addEventListener('focus',explain);button.addEventListener('click',explain);list.append(button);
+ });
+ const reset=()=>{detail.textContent=toolkitDetails[index]};
+ row.addEventListener('mouseleave',()=>{if(!row.contains(document.activeElement))reset()});
+ row.addEventListener('focusout',event=>{if(!row.contains(event.relatedTarget))reset()});
+ row.append(top,title,list,detail);document.querySelector('#skill-rows').append(row);
+});
 const projects=[
   {
     "title": "Yuqelo",
