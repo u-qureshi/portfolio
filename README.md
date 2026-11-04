@@ -46,3 +46,7 @@ The original source video and unused generated still image are kept locally and 
 All three projects were built end to end by Umar. Yuqelo and Smart Scheduler cards use live-site screenshots; M4BE uses a branded illustration. The cinematic hero fills the viewport with a larger, sharp head-to-desk composition and a soft background extension, keeping the person and laptop visible.
 
 After editing `dist/style.css` or `dist/app.js`, run `node scripts/version-assets.mjs` before committing. The page loads content-versioned CSS and JavaScript so browser caches cannot mix old framing styles with new animation code.
+
+## Animation performance
+
+The static backdrop is composited separately from the changing canvas. Frame fetching and bitmap decoding happen asynchronously, with a bounded full-resolution cache and compact previews for large scroll jumps. Compressed frames warm at low priority; reduced-motion and data-saver preferences limit prefetching. Scroll updates are batched into animation frames and use cached layout metrics. Fonts and SVG icons are served locally.
