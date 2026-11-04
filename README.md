@@ -44,3 +44,5 @@ The original source video and unused generated still image are kept locally and 
 - [Smart Scheduler](https://fyp-pied-eight.vercel.app/) — academic scheduling
 
 All three projects were built end to end by Umar. Yuqelo and Smart Scheduler cards use live-site screenshots; M4BE uses a branded illustration. The cinematic hero fills the viewport with a larger, sharp head-to-desk composition and a soft background extension, keeping the person and laptop visible.
+
+After editing `dist/style.css` or `dist/app.js`, run `node scripts/version-assets.mjs` before committing. The page loads content-versioned CSS and JavaScript so browser caches cannot mix old framing styles with new animation code.
