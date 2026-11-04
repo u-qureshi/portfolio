@@ -36,3 +36,11 @@ If configuring manually:
 The animation follows scroll position directly: slow scrolling shows fine movement and fast scrolling advances immediately without holding the page. Reduced-motion preferences are supported. Project illustrations are visual representations rather than client screenshots.
 
 The original source video and unused generated still image are kept locally and excluded from Git. This repository contains only Umar's portfolio; it excludes the original reference site's downloaded files and hosting-specific credentials/configuration.
+
+## Featured projects
+
+- [Yuqelo](https://www.yuqelo.site/) — everyday online tools
+- [M4BE](https://m4be5.com/) — gaming marketplace
+- [Smart Scheduler](https://fyp-pied-eight.vercel.app/) — academic scheduling
+
+All three projects were built end to end by Umar. Yuqelo and Smart Scheduler cards use live-site screenshots; M4BE uses a branded illustration. The cinematic hero fills the viewport with a larger, sharp head-to-desk composition and a soft background extension, keeping the person and laptop visible.
