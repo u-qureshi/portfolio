@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+node_modules/
+.vercel/
+.openai/
+.env
+.env.*
+!.env.example
+*.log
+# Source media is kept locally; the website uses the optimized WebP sequence.
+dist/gemini_generated_video_*.mp4
+dist/assets/hero.png
